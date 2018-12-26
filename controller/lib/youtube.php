@@ -21,7 +21,8 @@ class YouTube
 
     public function __construct($YTDLBinary, $URL)
     {
-        $this->YTDLBinary = $YTDLBinary;
+        $stripped = preg_replace('/\s/', '', shell_exec('which youtube-dl'));
+        $this->YTDLBinary = $stripped;
         $this->URL = $URL;
     }
 
